@@ -141,3 +141,6 @@ cython_debug/
 
 # IDE stuff
 .idea/
+
+# test directory
+load_testing_data
