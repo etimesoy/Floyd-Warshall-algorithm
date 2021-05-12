@@ -32,9 +32,11 @@ def generate_data(start: int, end: int, step: int, count: int):
                     vert2 = random.randint(1, count_of_verts)
                     weight = random.randint(start, end)
 
+                adjacency_matrix[vert1 - 1][vert2 - 1] = weight
+
                 for q in range(count_of_verts):
                     adjacency_matrix[q][q] = 0
-                adjacency_matrix[vert1 - 1][vert2 - 1] = weight
+
                 file.write(str(adjacency_matrix))
 
                 # adjacency_matrix = [[ 0,   3,  inf,  5 ],
