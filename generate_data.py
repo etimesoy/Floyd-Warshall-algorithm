@@ -21,14 +21,25 @@ R.D Вы можете сделать кол-вом (которое фигури�
 def generate_data(start: int, end: int, step: int, count: int):
     for i in range(start, end, step):
         for j in range(1, count + 1):
-            with open(f'load_testing_data\\{i}_{j}.txt', 'w') as file:
-                len_vertex = random.randint(start, i)
-                len_ribs = random.randint(start, end)
-                file.write(f'{len_vertex}\n')
-                file.write(f'{len_ribs}\n')
-                for q in range(len_ribs):
-                    file.write(f'{random.randint(1, len_vertex)} {random.randint(1, len_vertex)} '
-                               f'{random.randint(start, end)}\n')
+            with open(f'load_testing_data/{i}_{j}.txt', 'w') as file:
+                count_of_verts = random.randint(start, i)
+                count_of_edges = random.randint(start, end)
+                adjacency_matrix = [['inf' for _ in range(count_of_verts)] for _ in range(count_of_verts)]
+                for y in range(count_of_edges):
+                    vert1 = random.randint(1, count_of_verts)
+                    vert2 = random.randint(1, count_of_verts)
+                    weight = random.randint(start, end)
+                    adjacency_matrix[vert1 - 1][vert2 - 1] = weight
+
+                for q in range(count_of_verts):
+                    adjacency_matrix[q][q] = 0
+
+                file.write(str(adjacency_matrix))
+
+                # adjacency_matrix = [[ 0,   3,  inf,  5 ],
+                #                     [ 2,   0,  inf,  4 ],
+                #                     [inf,  1,   0,  inf],
+                #                     [inf, inf,  2,   0 ]]
 
 
 def main():
@@ -37,10 +48,10 @@ def main():
     except OSError:
         pass
 
-    start = int(input('input start: '))
-    end = int(input('input end: '))
-    step = int(input('input step: '))
-    count = int(input('input count: '))
+    start = int(input('start: '))
+    end = int(input('end: '))
+    step = int(input('step: '))
+    count = int(input('count: '))
 
     generate_data(start, end, step, count)
 
