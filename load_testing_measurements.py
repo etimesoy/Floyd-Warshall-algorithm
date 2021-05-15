@@ -4,6 +4,9 @@ import csv
 import ast
 import math
 from main import floyd_warshall
+import pandas as pd
+import matplotlib.pyplot as plt
+# %pylab inline
 
 
 def avg(numbers: list) -> float:
@@ -22,12 +25,12 @@ def file_correction(lst: list) -> list:
     return lst
 
 
-def measure_time():
+def measure_time(name_file):
     test_file = os.listdir(path='load_testing_data/')
     result = []
     mini = math.inf
     maxi = 0.0
-    with open(f'load_testing_measurements/{time.time()}.csv', 'w') as file:
+    with open(f'load_testing_measurements/{name_file}.csv', 'w') as file:
         writer = csv.writer(file, delimiter=',')
         writer.writerow(['size', 'min', 'max', 'avg', 'median'])
         for i in sorted(test_file, key=lambda x: int(x[:-4])):
@@ -37,7 +40,17 @@ def measure_time():
                 floyd_warshall(lst)
                 end = time.time() - start
                 result.append(end)
-                writer.writerow([i, min(mini, end), max(maxi, end), avg(result), median(result)])
+                maxi = max(maxi, end)
+                mini = min(mini, end)
+                writer.writerow([i, mini, maxi, avg(result), median(result)])
+
+
+def draws_graph(name_file):
+    data = pd.read_csv(f"load_testing_measurements/{name_file}.csv")
+    data.set_index("size", inplace=True)
+    data.head()
+    data.plot()
+    plt.show()
 
 
 def main():
@@ -46,7 +59,11 @@ def main():
     except OSError:
         pass
 
-    measure_time()
+    name_file = time.time()
+
+    measure_time(name_file)
+
+    draws_graph(name_file)
 
 
 if __name__ == "__main__":
