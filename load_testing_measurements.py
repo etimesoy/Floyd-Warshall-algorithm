@@ -43,6 +43,7 @@ def measure_time(name_file):
                 maxi = max(maxi, end)
                 mini = min(mini, end)
                 writer.writerow([i, mini, maxi, avg(result), median(result)])
+                print('finish:', i)
 
 
 def draws_graph(name_file):
