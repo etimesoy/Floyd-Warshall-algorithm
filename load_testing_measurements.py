@@ -4,9 +4,6 @@ import csv
 import ast
 import math
 from main import floyd_warshall
-import pandas as pd
-import matplotlib.pyplot as plt
-# %pylab inline
 
 
 def avg(numbers: list) -> float:
@@ -25,13 +22,13 @@ def file_correction(lst: list) -> list:
     return lst
 
 
-def measure_time(name_file):
+def measure_time():
     test_file = os.listdir(path='load_testing_data/')
     result = []
     mini = math.inf
     maxi = 0.0
-    with open(f'load_testing_measurements/{name_file}.csv', 'w') as file:
-        writer = csv.writer(file, delimiter=',')
+    with open(f'load_testing_measurements/{time.time()}.csv', 'w') as file_csv:
+        writer = csv.writer(file_csv, delimiter=',')
         writer.writerow(['size', 'min', 'max', 'avg', 'median'])
         for i in sorted(test_file, key=lambda x: int(x[:-4])):
             with open(f'load_testing_data/{i}', 'r') as file:
@@ -46,25 +43,13 @@ def measure_time(name_file):
                 print('finish:', i)
 
 
-def draws_graph(name_file):
-    data = pd.read_csv(f"load_testing_measurements/{name_file}.csv")
-    data.set_index("size", inplace=True)
-    data.head()
-    data.plot()
-    plt.show()
-
-
 def main():
     try:
         os.mkdir('load_testing_measurements')
     except OSError:
         pass
 
-    name_file = time.time()
-
-    measure_time(name_file)
-
-    draws_graph(name_file)
+    measure_time()
 
 
 if __name__ == "__main__":
