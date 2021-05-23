@@ -25,7 +25,8 @@ def generate_data(start: int, end: int, step: int, count: int):
             with open(f'load_testing_data/{i}_{j}.txt', 'w') as file:
                 count_of_verts = random.randint(start, i)
                 count_of_edges = random.randint(start, end)
-                adjacency_matrix = [['inf' for _ in range(count_of_verts)] for _ in range(count_of_verts)]
+                adjacency_matrix = [[inf for _ in range(count_of_verts)] for _ in range(count_of_verts)]
+
                 for y in range(count_of_edges):
                     vert1 = random.randint(1, count_of_verts)
                     vert2 = random.randint(1, count_of_verts)
