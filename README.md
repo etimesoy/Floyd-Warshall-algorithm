@@ -64,4 +64,4 @@
 ### Пример графика:
 
 ![Alt text](load_testing_plots/1621626290.png?raw=true "Title")
-[![Watch the video](https://yandex.ru/images/search?from=tabbar&source-serpid=q_CuwkO-0o7EdzOvxkGzcA&nomisspell=1&text=dungeon%20master%20гачимучи&source=related-query-serp&pos=39&rpt=simage&img_url=https%3A%2F%2Fsun9-23.userapi.com%2Fimpf%2FDwrrmtOZJMXMGwqJnKbDDOnGA22Pjk52dI9DDA%2FiAlkOwZthes.jpg%3Fsize%3D599x604%26quality%3D96%26sign%3D6d14939d0c749797b206825112b6dd43)](https://youtu.be/RBBIM4YO2_8)
+[![Watch the video](https://i.imgur.com/7g9mzdM.jpg)](https://youtu.be/RBBIM4YO2_8)
