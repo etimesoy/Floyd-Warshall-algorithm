@@ -64,4 +64,4 @@
 ### Пример графика:
 
 ![Alt text](load_testing_plots/1621626290.png?raw=true "Title")
-[![Watch the video](https://i.imgur.com/7g9mzdM.jpg)](https://youtu.be/RBBIM4YO2_8)
+[![Watch the video](https://cf2.ppt-online.org/files2/slide/h/hRVNIjTzD1Jfw92lMtOLyY4SFGWmCvnrdKuqik/slide-23.jpg)](https://youtu.be/RBBIM4YO2_8)
