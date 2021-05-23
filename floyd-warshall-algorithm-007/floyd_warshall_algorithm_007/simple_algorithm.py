@@ -1,15 +1,20 @@
 import click
-from .common_functions import generate_data as gd
-from .common_functions import load_testing_measurements as ms
+from .common_func import generate_data as gd
+from .common_func import main as m
+from .common_func import load_testing_measurements as ms
+import os
 
 
-@click.main()
+@click.group()
 def main():
     pass
 
+@main.command()
+def process_one():
+    m.main()
 
-@main.group()
-@click.command()
+
+@main.command()
 @click.option('--start', type=int, default=5)
 @click.option('--end', type=int, default=22)
 @click.option('--step', type=int, default=5)
@@ -22,18 +27,16 @@ def generate_data(start: int, end: int, step: int, count: int):
     gd.generate_data(start, end, step, count)
 
 
-@main.group()
-@click.command()
-@click.argument('name_file', type=str)
-def measure_time(name_file:str):
+@main.command()
+def measure_time():
     try:
         os.mkdir('load_testing_measurements')
     except OSError:
         pass
-    ms.measure_time(name_file)
+    ms.measure_time()
 
 
-@main.group()
+@main.command()
 @click.option('--file')
 def create_chart(file: str):
     ms.draws_graph(file)
