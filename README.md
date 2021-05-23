@@ -64,4 +64,4 @@
 ### Пример графика:
 
 ![Alt text](load_testing_plots/1621626290.png?raw=true "Title")
-
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/RBBIM4YO2_8)
